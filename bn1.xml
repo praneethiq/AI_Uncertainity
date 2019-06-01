@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>Attack</NAME>
+	<OUTCOME>True</OUTCOME>
+	<OUTCOME>False</OUTCOME>
+	<PROPERTY>position = (7476.205078125, 5266.546875)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Detection System</NAME>
+	<OUTCOME>High</OUTCOME>
+	<OUTCOME>Low</OUTCOME>
+	<PROPERTY>position = (7341.0703125, 5194.54931640625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Alert</NAME>
+	<OUTCOME>True</OUTCOME>
+	<OUTCOME>False</OUTCOME>
+	<PROPERTY>position = (7343.89501953125, 5404.494140625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Log</NAME>
+	<OUTCOME>Normal</OUTCOME>
+	<OUTCOME>Anamolous</OUTCOME>
+	<PROPERTY>position = (7574.6865234375, 5411.4892578125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>EmailContent</NAME>
+	<OUTCOME>Business</OUTCOME>
+	<OUTCOME>Personal</OUTCOME>
+	<PROPERTY>position = (7237.57470703125, 5069.11962890625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Events(Political/Holidays)</NAME>
+	<OUTCOME>Yes</OUTCOME>
+	<OUTCOME>No</OUTCOME>
+	<PROPERTY>position = (7727.4248046875, 5105.55615234375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Firewall Status</NAME>
+	<OUTCOME>Active</OUTCOME>
+	<OUTCOME>Deactive</OUTCOME>
+	<PROPERTY>position = (7503.75, 5154.1845703125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Maintenance Schedule</NAME>
+	<OUTCOME>Correct</OUTCOME>
+	<OUTCOME>Out of Date</OUTCOME>
+	<PROPERTY>position = (7462.52685546875, 5046.5107421875)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>Attack</FOR>
+	<GIVEN>Detection System</GIVEN>
+	<GIVEN>Events(Political/Holidays)</GIVEN>
+	<GIVEN>Firewall Status</GIVEN>
+	<TABLE>0.1 0.9 0.2 0.8 0.5 0.5 0.4 0.6 0.6 0.4 0.2 0.8 0.9 0.1 0.75 0.25</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Detection System</FOR>
+	<GIVEN>EmailContent</GIVEN>
+	<TABLE>0.97 0.03 0.97 0.03</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Alert</FOR>
+	<GIVEN>Attack</GIVEN>
+	<TABLE>0.8 0.2 0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Log</FOR>
+	<GIVEN>Attack</GIVEN>
+	<TABLE>0.7 0.3 0.7 0.3</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>EmailContent</FOR>
+	<TABLE>0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Events(Political/Holidays)</FOR>
+	<TABLE>0.27778 0.72222</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Firewall Status</FOR>
+	<GIVEN>Maintenance Schedule</GIVEN>
+	<TABLE>0.95 0.05 0.95 0.05</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Maintenance Schedule</FOR>
+	<TABLE>0.98 0.02</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>

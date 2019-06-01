@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>Attack</NAME>
+	<OUTCOME>True</OUTCOME>
+	<OUTCOME>False</OUTCOME>
+	<PROPERTY>position = (7510.45751953125, 5192.40234375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Detection System</NAME>
+	<OUTCOME>High</OUTCOME>
+	<OUTCOME>Low</OUTCOME>
+	<PROPERTY>position = (7335.61181640625, 5194.3564453125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Alert</NAME>
+	<OUTCOME>True</OUTCOME>
+	<OUTCOME>False</OUTCOME>
+	<PROPERTY>position = (7435.35693359375, 5370.17578125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Log</NAME>
+	<OUTCOME>Normal</OUTCOME>
+	<OUTCOME>Anamolous</OUTCOME>
+	<PROPERTY>position = (7712.69482421875, 5348.3798828125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Email Content</NAME>
+	<OUTCOME>Business</OUTCOME>
+	<OUTCOME>Personal</OUTCOME>
+	<PROPERTY>position = (7214.990234375, 5133.47509765625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Events(Political/Holidays)</NAME>
+	<OUTCOME>Yes</OUTCOME>
+	<OUTCOME>No</OUTCOME>
+	<PROPERTY>position = (7717.01025390625, 5078.09228515625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Firewall Status</NAME>
+	<OUTCOME>Active</OUTCOME>
+	<OUTCOME>Deactive</OUTCOME>
+	<PROPERTY>position = (7470.4951171875, 5101.59326171875)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Maintenance Schedule</NAME>
+	<OUTCOME>Correct</OUTCOME>
+	<OUTCOME>Out of Date</OUTCOME>
+	<PROPERTY>position = (7440.12890625, 5028.5556640625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Notification</NAME>
+	<OUTCOME>SMS</OUTCOME>
+	<OUTCOME>Email</OUTCOME>
+	<PROPERTY>position = (7360.38671875, 5411.44384765625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Backup Restore</NAME>
+	<OUTCOME>Successful</OUTCOME>
+	<OUTCOME>Unsuccessful</OUTCOME>
+	<PROPERTY>position = (7580.748046875, 5375.7744140625)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>Attack</FOR>
+	<GIVEN>Detection System</GIVEN>
+	<GIVEN>Events(Political/Holidays)</GIVEN>
+	<GIVEN>Firewall Status</GIVEN>
+	<TABLE>0.1 0.9 0.2 0.8 0.5 0.5 0.4 0.6 0.6 0.4 0.2 0.8 0.9 0.1 0.75 0.25</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Detection System</FOR>
+	<GIVEN>Email Content</GIVEN>
+	<TABLE>0.97 0.03 0.97 0.03</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Alert</FOR>
+	<GIVEN>Attack</GIVEN>
+	<TABLE>0.8 0.2 0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Log</FOR>
+	<GIVEN>Attack</GIVEN>
+	<TABLE>0.7 0.3 0.7 0.3</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Email Content</FOR>
+	<TABLE>0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Events(Political/Holidays)</FOR>
+	<TABLE>0.27778 0.72222</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Firewall Status</FOR>
+	<GIVEN>Maintenance Schedule</GIVEN>
+	<TABLE>0.95 0.05 0.95 0.05</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Maintenance Schedule</FOR>
+	<TABLE>0.98 0.02</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Notification</FOR>
+	<GIVEN>Alert</GIVEN>
+	<TABLE>0.5 0.5 0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Backup Restore</FOR>
+	<GIVEN>Attack</GIVEN>
+	<TABLE>0.95 0.05 0.1 0.9</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>
